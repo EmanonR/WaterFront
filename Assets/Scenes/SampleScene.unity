@@ -226,7 +226,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   target: {fileID: 666228324}
-  mousePower: 0
+  mousePower: 5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +569,23 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Player Movement
       m_Flags: 8
+    m_Flags: 0
+  MouseInput:
+    m_Name: Mouse Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cd40267c-d756-4ab2-9ab0-e43fe15aa26f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7e238b4f-a34c-4f3f-ad61-6919fd6fb495
+      m_Path: <Mouse>/position
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Input
+      m_Flags: 0
     m_Flags: 0
 --- !u!4 &1145644785
 Transform:
