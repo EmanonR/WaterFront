@@ -5,7 +5,7 @@ public class AreaInfo : MonoBehaviour
 {
     public string AreaName { get; private set; }
 
-    public List<Item> fishInArea = new();
+    public List<Fish> fishInArea = new();
 
     public static AreaInfo CurrentAreaInfo;
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FishingController : MonoBehaviour
@@ -33,8 +34,7 @@ public class FishingController : MonoBehaviour
                 break;
             case FishingState.Catch:
                 print("Caught a fish");
-                Item caughtFish = AreaInfo.CurrentAreaInfo.fishInArea[(int)Random.Range(0, AreaInfo.CurrentAreaInfo.fishInArea.Count)];
-                Inventory.Instance.AddItem(new InventoryItem(caughtFish, FishSize.Tiny));
+                PickFish();
                 EndFishing();
                 break;
             default:
@@ -78,7 +78,7 @@ public class FishingController : MonoBehaviour
     public void StartFishing()
     {
         print("Cast line!");
-        timer = Random.Range(1f, 2f);
+        timer = UnityEngine.Random.Range(1f, 2f);
         fishingState = FishingState.Waiting;
     }
 
@@ -86,5 +86,16 @@ public class FishingController : MonoBehaviour
     {
         print("Ending fish");
         fishingState = FishingState.Idle;
+    }
+
+    FishSize RollSize()
+    {
+        return (FishSize)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(FishSize)).Length);
+    }
+
+    void PickFish()
+    {
+        Item caughtFish = AreaInfo.CurrentAreaInfo.fishInArea[(int)UnityEngine.Random.Range(0, AreaInfo.CurrentAreaInfo.fishInArea.Count)];
+        Inventory.Instance.AddItem(new InventoryItem(caughtFish, RollSize()));
     }
 }
