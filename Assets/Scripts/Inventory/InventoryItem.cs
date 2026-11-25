@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public enum FishSize { Tiny, Small, Medium, Large, Monster }
-public class InventoryItem : MonoBehaviour
+
+[System.Serializable]
+public class InventoryItem
 {
     public Item item;
     public FishSize size;

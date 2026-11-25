@@ -15,7 +15,7 @@ public static class PlayerStats
 
         int levelsGot = 0;
 
-        for (int i = 0; i < Mathf.Floor(xp / 100); i++)
+        while (xp >= 100)
         {
             levelsGot++;
             xp -= 100;

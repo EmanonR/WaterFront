@@ -29,7 +29,6 @@ public class FishingController : MonoBehaviour
                 Waiting();
                 break;
             case FishingState.Hooked:
-                print("Fish on hook!");
                 Hooked();
                 break;
             case FishingState.Catch:
@@ -58,6 +57,7 @@ public class FishingController : MonoBehaviour
         {
             timer = 1f;
             fishingState = FishingState.Hooked;
+            print("Fish on hook!");
         }
     }
 
