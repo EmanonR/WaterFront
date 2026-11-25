@@ -12,8 +12,7 @@ public class TimeManager : MonoBehaviour
     public static event Action<int> OnTimeChanged;
 
     public static TimeManager Instance;
-
-    private void Update()
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -23,7 +22,10 @@ public class TimeManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
+    }
 
+    private void Update()
+    {
         if (!counting)
             return;
 
