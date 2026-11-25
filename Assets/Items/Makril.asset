@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Makril
   m_EditorClassIdentifier: Assembly-CSharp::Item
   DisplayName: Makril
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0de09b633c8e9ed41a05227ab6c01d4b, type: 3}
