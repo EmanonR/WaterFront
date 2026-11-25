@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<InventoryItem> items = new();
+    public int inventoryLimit = 8;
 
     public static Inventory Instance;
 
@@ -18,6 +19,11 @@ public class Inventory : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
+    }
+
+    public int GetInventoryEmptyCount()
+    {
+        return inventoryLimit - items.Count;
     }
 
     public void AddItem(InventoryItem item)
