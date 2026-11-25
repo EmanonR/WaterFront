@@ -348,7 +348,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1560915954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &846248024
+--- !u!1 &1307362989
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,41 +356,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 846248026}
-  - component: {fileID: 846248025}
+  - component: {fileID: 1307362991}
+  - component: {fileID: 1307362990}
   m_Layer: 0
-  m_Name: InventoryOpen
+  m_Name: DialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &846248025
+--- !u!114 &1307362990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846248024}
+  m_GameObject: {fileID: 1307362989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a488bef368d2c4db0620443a343d6b, type: 3}
+  m_Script: {fileID: 11500000, guid: e823fdbf57b82a143bd705c052b44a13, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OpenInventory
---- !u!4 &846248026
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
+--- !u!4 &1307362991
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846248024}
+  m_GameObject: {fileID: 1307362989}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 476.18198, y: 283.80194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1560915954}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560915953
 GameObject:
@@ -422,7 +422,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 768045103}
-  - {fileID: 846248026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &281989758585999368
@@ -715,6 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   items: []
+  inventoryLimit: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -722,6 +722,7 @@ SceneRoots:
   - {fileID: 3361704912695820682}
   - {fileID: 3638293212408702892}
   - {fileID: 3293958771300969159}
+  - {fileID: 1307362991}
   - {fileID: 281989758585999368}
   - {fileID: 2541682}
   - {fileID: 3249427096021459712}
