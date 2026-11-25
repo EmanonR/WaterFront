@@ -71,7 +71,7 @@ public class FishingController : MonoBehaviour
             return;
         }
 
-        if (InputManager.Instance.catchKey.WasPressedThisFrame())
+        if (InputManager.Instance.castKey.WasPressedThisFrame())
             fishingState = FishingState.Catch;
     }
 

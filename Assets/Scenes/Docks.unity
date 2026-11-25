@@ -616,23 +616,6 @@ MonoBehaviour:
       m_Action: Cast Key
       m_Flags: 0
     m_Flags: 0
-  catchKey:
-    m_Name: Catch Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d6fa8a0e-4081-4477-aa05-162dc69c07e6
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 7003911d-9a7b-47fb-94ca-35eef2c4eab2
-      m_Path: <Keyboard>/z
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Catch Key
-      m_Flags: 0
-    m_Flags: 0
   inventoryKey:
     m_Name: Inventory Key
     m_Type: 0
@@ -665,6 +648,40 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: Map Key
+      m_Flags: 0
+    m_Flags: 0
+  interactKey:
+    m_Name: Interact Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e099d928-6b36-4a0c-973d-08984a7d058e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6386ee97-c3e3-48d4-be69-187b3485faae
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact Key
+      m_Flags: 0
+    m_Flags: 0
+  cancelKey:
+    m_Name: Cancel Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 61c26bde-3ef1-4ba6-b8cc-cb9bf7ca6503
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2f5be7ed-1b46-4143-bd89-36656f7ec726
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Cancel Key
       m_Flags: 0
     m_Flags: 0
 --- !u!1 &5807818965013295243

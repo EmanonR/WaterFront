@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public InputAction castKey;
-    public InputAction catchKey;
     public InputAction inventoryKey;
     public InputAction mapKey;
+    public InputAction interactKey;
+    public InputAction cancelKey;
 
     public static InputManager Instance;
 
@@ -23,16 +24,18 @@ public class InputManager : MonoBehaviour
         Instance = this;
 
         castKey.Enable();
-        catchKey.Enable();
         inventoryKey.Enable();
         mapKey.Enable();
+        interactKey.Enable();
+        cancelKey.Enable();
     }
 
     private void OnDestroy()
     {
         castKey.Disable();
-        catchKey.Disable();
         inventoryKey.Disable();
         mapKey.Disable();
+        interactKey.Disable();
+        cancelKey.Disable();
     }
 }
