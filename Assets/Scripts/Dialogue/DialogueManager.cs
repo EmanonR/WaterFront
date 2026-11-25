@@ -8,8 +8,10 @@ public class DialogueManager : MonoBehaviour
 
     Conversation currentConversation;
 
-    public event Action<Dialogue> NewDialogue;
-    public event Action<string> NewLine;
+    public static event Action DialogueStart;
+    public static event Action DialogueEnd;
+    public static event Action<string> NewLine;
+    public static event Action<string> NewName;
 
     public void StartDialogue(Conversation conversation)
     {
