@@ -20,12 +20,16 @@ public class FishingController : MonoBehaviour
         {
             case FishingState.Idle:
                 if (InputManager.Instance.castKey.WasPressedThisFrame())
+                {
+                    print("You cast your line");
                     StartFishing();
+                }
                 break;
             case FishingState.Waiting:
                 Waiting();
                 break;
             case FishingState.Hooked:
+                print("Fish on hook!");
                 Hooked();
                 break;
             case FishingState.Catch:
@@ -42,7 +46,10 @@ public class FishingController : MonoBehaviour
     void Waiting()
     {
         if (InputManager.Instance.castKey.WasPressedThisFrame())
+        {
+            print("Cancel fishing");
             EndFishing();
+        }
 
         timer -= Time.deltaTime;
 
@@ -58,6 +65,7 @@ public class FishingController : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
+            print("It got away...");
             EndFishing();
             return;
         }
