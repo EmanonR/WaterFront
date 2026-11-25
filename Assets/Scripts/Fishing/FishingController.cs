@@ -49,6 +49,7 @@ public class FishingController : MonoBehaviour
         {
             print("Cancel fishing");
             EndFishing();
+            return;
         }
 
         timer -= Time.deltaTime;
