@@ -35,7 +35,7 @@ public class FishingController : MonoBehaviour
             case FishingState.Catch:
                 print("Caught a fish");
                 Item caughtFish = AreaInfo.CurrentAreaInfo.fishInArea[(int)Random.Range(0, AreaInfo.CurrentAreaInfo.fishInArea.Count)];
-                Inventory.Instance.AddItem(caughtFish);
+                Inventory.Instance.AddItem(new InventoryItem(caughtFish, FishSize.Tiny));
                 EndFishing();
                 break;
             default:

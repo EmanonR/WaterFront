@@ -1,9 +1,10 @@
-using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<Item> items = new();
+    public List<InventoryItem> items = new();
 
     public static Inventory Instance;
 
@@ -19,20 +20,23 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
-    public void AddItem(Item item)
+    public void AddItem(InventoryItem item)
     {
         items.Add(item);
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(InventoryItem item)
     {
         items.Remove(item);
     }
 
-    public bool HasItem(Item item)
+    public bool HasItem(Item template)
     {
-        if (items.Contains(item)) 
-            return true;
+        foreach (InventoryItem item in items)
+        {
+            if (item.item == template)
+                return true;
+        }
 
         return false;
     }

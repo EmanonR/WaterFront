@@ -8,9 +8,7 @@ public class OpenInventory : MonoBehaviour
         {
             print("Inventory:");
             foreach (var item in Inventory.Instance.items)
-            {
-                print(item.DisplayName);
-            }
+                print($"{item.size} {item.item.DisplayName}");
         }
     }
 }

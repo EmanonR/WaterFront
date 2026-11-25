@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public enum FishSize { Tiny, Small, Medium, Large, Monster }
+public class InventoryItem : MonoBehaviour
+{
+    public Item item;
+    public FishSize size;
+
+    public InventoryItem(Item item, FishSize size)
+    {
+        this.item = item;
+        this.size = size;
+    }
+}
