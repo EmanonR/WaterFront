@@ -69,7 +69,7 @@ public class FishingController : MonoBehaviour
     public void StartFishing()
     {
         print("Cast line!");
-        timer = Random.Range(1, 2);
+        timer = Random.Range(1f, 2f);
         fishingState = FishingState.Waiting;
     }
 

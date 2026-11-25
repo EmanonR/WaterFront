@@ -24,6 +24,9 @@ public static class PlayerStats
         OnXpChanged?.Invoke(xp);
 
         if (levelsGot > 0)
+        {
+            level += levelsGot;
             OnLevelChanged?.Invoke(levelsGot);
+        }
     }
 }
