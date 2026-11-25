@@ -10,31 +10,53 @@ public class InventoryUI : MonoBehaviour
     public List<GameObject> inventorySlots;
     int inventorySlotCount = 8;
 
+    private void Awake()
+    {
+        DisableUI();
+    }
+
     private void Update()
     {
         if (InputManager.Instance.inventoryKey.WasPressedThisFrame())
         {
             on = !on;
 
-            inventoryObject.SetActive(on);
-
-            foreach (var slot in inventorySlots)
-            {
-                Destroy(slot);
-            }
-
-            inventorySlots.Clear();
-
-            for (int i = 0; i < inventorySlotCount; i++)
-            {
-                InventoryItem item = null;
-                if (i < Inventory.Instance.items.Count)
-                    item = Inventory.Instance.items[i];
-
-                GameObject slot = Instantiate(inventorySlotPrefab, gridParent);
-                slot.GetComponent<InventorySlot>().SetItem(item);
-                inventorySlots.Add(slot);
-            }
+            if (on)
+                EnableUI();
+            else
+                DisableUI();
         }
+    }
+
+    void EnableUI()
+    {
+        inventoryObject.SetActive(true);
+
+        ClearUI();
+
+        for (int i = 0; i < inventorySlotCount; i++)
+        {
+            InventoryItem item = null;
+            if (i < Inventory.Instance.items.Count)
+                item = Inventory.Instance.items[i];
+
+            GameObject slot = Instantiate(inventorySlotPrefab, gridParent);
+            slot.GetComponent<InventorySlot>().SetItem(item);
+            inventorySlots.Add(slot);
+        }
+    }
+    void DisableUI()
+    {
+        inventoryObject.SetActive(false);
+
+        ClearUI();
+    }
+
+    void ClearUI()
+    {
+        foreach (var slot in inventorySlots)
+            Destroy(slot);
+
+        inventorySlots.Clear();
     }
 }
