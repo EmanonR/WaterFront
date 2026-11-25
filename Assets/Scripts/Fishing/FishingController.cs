@@ -6,26 +6,76 @@ public class FishingController : MonoBehaviour
 
     public enum FishingState
     {
-        Starting,
+        Idle,
         Waiting,
         Hooked,
-        Reeling,
-        Catch,
-        Cancel
+        Catch
+    }
+
+    float timer;
+
+    private void Update()
+    {
+        switch (fishingState)
+        {
+            case FishingState.Idle:
+                if (InputManager.Instance.castKey.WasPressedThisFrame())
+                    StartFishing();
+                break;
+            case FishingState.Waiting:
+                Waiting();
+                break;
+            case FishingState.Hooked:
+                Hooked();
+                break;
+            case FishingState.Catch:
+                print("Caught a fish");
+                Item caughtFish = AreaInfo.CurrentAreaInfo.fishInArea[(int)Random.Range(0, AreaInfo.CurrentAreaInfo.fishInArea.Count)];
+                Inventory.Instance.AddItem(caughtFish);
+                EndFishing();
+                break;
+            default:
+                break;
+        }
+    }
+
+    void Waiting()
+    {
+        if (InputManager.Instance.castKey.WasPressedThisFrame())
+            EndFishing();
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            timer = 1f;
+            fishingState = FishingState.Hooked;
+        }
+    }
+
+    void Hooked()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            EndFishing();
+            return;
+        }
+
+        if (InputManager.Instance.catchKey.WasPressedThisFrame())
+            fishingState = FishingState.Catch;
     }
 
     public void StartFishing()
     {
-
-    }
-
-    public void CancelFishing()
-    {
-
+        print("Cast line!");
+        timer = Random.Range(1, 2);
+        fishingState = FishingState.Waiting;
     }
 
     public void EndFishing()
     {
-
+        print("Ending fish");
+        fishingState = FishingState.Idle;
     }
 }
