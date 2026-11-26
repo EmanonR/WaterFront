@@ -13,7 +13,7 @@ public class DialogueUI : MonoBehaviour
     public GameObject choicePrefab;
     public GameObject choiceParent;
 
-    List<GameObject> choiceList;
+    List<GameObject> choiceList = new();
 
     private void Awake()
     {
