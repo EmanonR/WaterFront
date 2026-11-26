@@ -10,6 +10,7 @@ public class TimeManager : MonoBehaviour
     float currentTime = 480;
     float timer;
     bool counting = true;
+    bool dayEnded;
 
     public static event Action<int> OnTimeChanged;
     public static event Action OnDayEnd;
@@ -34,8 +35,8 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
-        if (!counting)
-            return;
+        if (dayEnded) return;
+        if (!counting) return;
 
         timer += Time.deltaTime;
 
@@ -67,6 +68,9 @@ public class TimeManager : MonoBehaviour
         OnTimeChanged?.Invoke((int)currentTime);
 
         if (currentTime >= targetTime)
-            OnDayEnd?.Invoke();
+        {
+            OnDayEnd?.Invoke(); 
+            dayEnded = true;
+        }
     }
 }
