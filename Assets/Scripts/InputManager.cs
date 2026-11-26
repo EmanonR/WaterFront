@@ -9,6 +9,9 @@ public class InputManager : MonoBehaviour
     public InputAction mapKey;
     public InputAction interactKey;
     public InputAction cancelKey;
+    public InputAction fishPullKey;
+    public InputAction fishResistKey;
+    public InputAction fishReleaseKey;
 
     public static InputManager Instance;
 
@@ -28,6 +31,9 @@ public class InputManager : MonoBehaviour
         mapKey.Enable();
         interactKey.Enable();
         cancelKey.Enable();
+        fishPullKey.Enable();
+        fishResistKey.Enable();
+        fishReleaseKey.Enable();
     }
 
     private void OnDestroy()
@@ -37,5 +43,8 @@ public class InputManager : MonoBehaviour
         mapKey.Disable();
         interactKey.Disable();
         cancelKey.Disable();
+        fishPullKey.Disable();
+        fishResistKey.Disable();
+        fishReleaseKey.Disable();
     }
 }

@@ -525,6 +525,123 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1103122057
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206341969923385836, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3870715874771198677, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: m_Name
+      value: PlayerInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishPullKey.m_Name
+      value: Fish Pull Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishResistKey.m_Name
+      value: Fish Resist Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishReleaseKey.m_Name
+      value: Fish Release Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishPullKey.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishResistKey.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishReleaseKey.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishPullKey.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 446e11e9-9d89-45b3-9fa1-e1178d257959
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishPullKey.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/z
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishResistKey.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 78074e41-6836-4649-888d-d6d054137a11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishReleaseKey.m_SingletonActionBindings.Array.data[0].m_Id
+      value: a4efc648-43f7-4068-96cc-23d02a2736b9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishPullKey.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Fish Pull Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishResistKey.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/x
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishReleaseKey.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/r
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishResistKey.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Fish Resist Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6597600894168274912, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
+      propertyPath: fishReleaseKey.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Fish Release Key
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20d30b8bbdc658446bc5548f2a892bca, type: 3}
 --- !u!1 &1560915953
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,118 +720,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1679348013
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1679348015}
-  - component: {fileID: 1679348014}
-  m_Layer: 0
-  m_Name: PlayerInput
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1679348014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679348013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5810e19bcd8c78747ac0e39cb43dbd9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  castKey:
-    m_Name: Cast Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 01cbef3a-0cd5-4dab-85f2-1a7c99070b55
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 66a3b49e-1f88-4f3c-865e-cb1f54743559
-      m_Path: <Keyboard>/z
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Cast Key
-      m_Flags: 0
-    m_Flags: 0
-  catchKey:
-    m_Name: Catch Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d6fa8a0e-4081-4477-aa05-162dc69c07e6
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 7003911d-9a7b-47fb-94ca-35eef2c4eab2
-      m_Path: <Keyboard>/z
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Catch Key
-      m_Flags: 0
-    m_Flags: 0
-  inventoryKey:
-    m_Name: Inventory Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 0be231f6-fb28-4317-aa3c-48c31f6c8b61
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 2ffcfb6a-636b-498e-84b9-db7768ef2798
-      m_Path: <Keyboard>/tab
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Inventory Key
-      m_Flags: 0
-    m_Flags: 0
-  mapKey:
-    m_Name: Map Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 3b5c563a-621e-4f1e-836d-3f7dacefc326
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 1899c6ff-8dd6-4df1-97ed-81a533f4040b
-      m_Path: <Keyboard>/m
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Map Key
-      m_Flags: 0
-    m_Flags: 0
---- !u!4 &1679348015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679348013}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -723,7 +728,7 @@ SceneRoots:
   - {fileID: 901386008}
   - {fileID: 1579050720}
   - {fileID: 653061733}
-  - {fileID: 1679348015}
+  - {fileID: 1103122057}
   - {fileID: 2541682}
   - {fileID: 796809385}
   - {fileID: 1560915954}

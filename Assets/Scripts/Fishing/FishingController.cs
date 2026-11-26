@@ -9,8 +9,7 @@ public class FishingController : MonoBehaviour
     {
         Idle,
         Waiting,
-        Hooked,
-        Catch
+        Fighting
     }
 
     float timer;
@@ -29,17 +28,27 @@ public class FishingController : MonoBehaviour
             case FishingState.Waiting:
                 Waiting();
                 break;
-            case FishingState.Hooked:
-                Hooked();
-                break;
-            case FishingState.Catch:
-                print("Caught a fish");
-                PickFish();
-                EndFishing();
+            case FishingState.Fighting:
+                Fight();
                 break;
             default:
                 break;
         }
+    }
+
+    void Fight()
+    {
+        if (InputManager.Instance.fishPullKey.IsPressed())
+            print("Pulling");
+        else if (InputManager.Instance.fishResistKey.IsPressed())
+            print("Resisting");
+        else if (InputManager.Instance.fishReleaseKey.IsPressed())
+        {
+            print("Released fish");
+            fishingState = FishingState.Idle;
+        }
+        else
+            print("Recovering");
     }
 
     void Waiting()
@@ -56,24 +65,11 @@ public class FishingController : MonoBehaviour
         if (timer <= 0)
         {
             timer = 1f;
-            fishingState = FishingState.Hooked;
+            fishingState = FishingState.Fighting;
             print("Fish on hook!");
         }
     }
 
-    void Hooked()
-    {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            print("It got away...");
-            EndFishing();
-            return;
-        }
-
-        if (InputManager.Instance.castKey.WasPressedThisFrame())
-            fishingState = FishingState.Catch;
-    }
 
     public void StartFishing()
     {
