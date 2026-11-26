@@ -17,4 +17,4 @@ MonoBehaviour:
   rarity: 0
   baseValue: 10
   pullStrength: 0.1
-  agressiveness: 5
+  agressiveness: 1

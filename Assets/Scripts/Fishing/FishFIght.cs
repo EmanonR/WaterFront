@@ -68,23 +68,6 @@ public class FishFight : MonoBehaviour
         Player.transform.position = Vector2.Lerp(PlayerPos1, PlayerPos2, playerWaterProg);
         Fish.transform.position = Vector2.Lerp(FishPos1, FishPos2, fishCaptureProg);
 
-        /*
-         * Plan
-         * player logic then enemy logic
-         * 
-         * player logic:
-         * Start fight. o
-         * pulling in fish. o
-         * end fight. o
-         * cutting line. o
-         * recovering when no input. o
-         * 
-         * Fish logic:
-         * randomness. o
-         * pull player. x
-         * player resist -> affects both. o
-        */
-
         if (fishCaptureProg >= 1)
         {
             EndFight(true);
@@ -99,26 +82,53 @@ public class FishFight : MonoBehaviour
         }
 
         SetPlayerState();
+        SetFishState();
+        ApplyFight();
+    }
 
-        switch (playerState)
+    void ApplyFight()
+    {
+        if (playerState == PlayerState.Release)
         {
-            case PlayerState.Recovering:
-                PlayerRecoverState();
-                break;
-            case PlayerState.Pulling:
-                PlayerPullState();
-                break;
-            case PlayerState.Resisting:
-                PlayerResistState();
-                break;
-            case PlayerState.Release:
-                EndFight(false);
-                break;
-            default:
-                PlayerRecoverState();
-                break;
+            EndFight(false);
+            return;
         }
 
+        switch (fishState)
+        {
+            case FishState.Idle:
+                switch (playerState)
+                {
+                    case PlayerState.Recovering:
+                        playerWaterProg = Mathf.Clamp(playerWaterProg -= Time.deltaTime / 5, 0, 1);
+                        break;
+                    case PlayerState.Pulling:
+                        fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime, 0, 1);
+                        break;
+                }
+                break;
+            case FishState.Pulling:
+                switch (playerState)
+                {
+                    case PlayerState.Recovering:
+                        playerWaterProg = Mathf.Clamp(playerWaterProg += Time.deltaTime * fish.pullStrength, 0, 1);
+                        fishCaptureProg = Mathf.Clamp(fishCaptureProg -= Time.deltaTime * fish.pullStrength, 0, 1);
+                        break;
+                    case PlayerState.Pulling:
+                        playerWaterProg = Mathf.Clamp(playerWaterProg += Time.deltaTime * fish.pullStrength, 0, 1);
+                        fishCaptureProg = Mathf.Clamp(fishCaptureProg -= Time.deltaTime * fish.pullStrength, 0, 1);
+                        break;
+                    case PlayerState.Resisting:
+                        playerWaterProg = Mathf.Clamp(playerWaterProg += (Time.deltaTime * fish.pullStrength / 2), 0, 1);
+                        fishCaptureProg = Mathf.Clamp(fishCaptureProg -= (Time.deltaTime * fish.pullStrength / 2), 0, 1);
+                        break;
+                }
+                break;
+        }
+    }
+
+    void SetFishState()
+    {
         if (!fishPulling)
         {
             fishState = FishState.Idle;
@@ -129,11 +139,8 @@ public class FishFight : MonoBehaviour
                 return;
             }
 
-            if (UnityEngine.Random.Range(0, 100) < fish.agressiveness)
-            {
-                fishPullTime = UnityEngine.Random.Range(.5f, 2f);
-                fishPulling = true;
-            }
+            fishPullTime = UnityEngine.Random.Range(.5f, 2f) * fish.agressiveness;
+            fishPulling = true;
         }
         else
         {
@@ -143,63 +150,11 @@ public class FishFight : MonoBehaviour
 
             if (fishPullTime <= 0)
             {
-                fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f);
+                fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f) * fish.agressiveness;
 
                 fishPulling = false;
                 return;
             }
-        }
-    }
-
-    void PlayerRecoverState()
-    {
-        //Need to add stats here
-        switch (fishState)
-        {
-            case FishState.Idle:
-                playerWaterProg = Mathf.Clamp(playerWaterProg -= Time.deltaTime, 0, 1);
-                break;
-            case FishState.Pulling:
-                playerWaterProg = Mathf.Clamp(playerWaterProg += Time.deltaTime * fish.pullStrength, 0, 1);
-                fishCaptureProg = Mathf.Clamp(fishCaptureProg -= Time.deltaTime * fish.pullStrength, 0, 1);
-                break;
-            default:
-                playerWaterProg = Mathf.Clamp(playerWaterProg -= Time.deltaTime, 0, 1);
-                break;
-        }
-    }
-
-    void PlayerPullState()
-    {
-        //Need to add stats here
-        switch (fishState)
-        {
-            case FishState.Idle:
-                fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime, 0, 1);
-                break;
-            case FishState.Pulling:
-                playerWaterProg = Mathf.Clamp(playerWaterProg += Time.deltaTime * fish.pullStrength, 0, 1);
-                fishCaptureProg = Mathf.Clamp(fishCaptureProg -= Time.deltaTime * fish.pullStrength, 0, 1);
-                break;
-            default:
-                fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime, 0, 1);
-                break;
-        }
-    }
-
-    void PlayerResistState()
-    {
-        //Need to add stats here
-        switch (fishState)
-        {
-            case FishState.Idle:
-                break;
-            case FishState.Pulling:
-                playerWaterProg = Mathf.Clamp(playerWaterProg += (Time.deltaTime * fish.pullStrength / 2), 0, 1);
-                fishCaptureProg = Mathf.Clamp(fishCaptureProg -= (Time.deltaTime * fish.pullStrength / 2), 0, 1);
-                break;
-            default:
-                break;
         }
     }
 
@@ -228,6 +183,9 @@ public class FishFight : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        Player.transform.position = Vector2.Lerp(PlayerPos1, PlayerPos2, playerWaterProg);
+        Fish.transform.position = Vector2.Lerp(FishPos1, FishPos2, fishCaptureProg);
+
         Gizmos.DrawLine(PlayerPos1, PlayerPos2);
         Gizmos.DrawLine(FishPos1, FishPos2);
     }
