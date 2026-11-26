@@ -7,4 +7,6 @@ public class Fish : Item
 {
     public Rarity rarity;
     public int baseValue = 10;
+    public float pullStrength = 1f;
+    public float agressiveness = 1f;
 }

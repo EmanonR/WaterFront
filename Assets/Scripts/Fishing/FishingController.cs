@@ -38,15 +38,16 @@ public class FishingController : MonoBehaviour
 
     void Fight()
     {
-        if (InputManager.Instance.fishPullKey.IsPressed())
-            print("Pulling");
-        else if (InputManager.Instance.fishResistKey.IsPressed())
-            print("Resisting");
-        else if (InputManager.Instance.fishReleaseKey.IsPressed())
+        if (InputManager.Instance.fishReleaseKey.IsPressed())
         {
             print("Released fish");
             fishingState = FishingState.Idle;
         }
+
+        if (InputManager.Instance.fishPullKey.IsPressed())
+            print("Pulling");
+        else if (InputManager.Instance.fishResistKey.IsPressed())
+            print("Resisting");
         else
             print("Recovering");
     }
