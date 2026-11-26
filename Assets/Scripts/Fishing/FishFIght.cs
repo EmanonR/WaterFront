@@ -58,7 +58,7 @@ public class FishFight : MonoBehaviour
         fishPulling = false;
         fishPullTime = 0;
 
-        fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f);
+        fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f) * fish.agressiveness;
     }
 
     private void Update()
@@ -150,7 +150,7 @@ public class FishFight : MonoBehaviour
 
             if (fishPullTime <= 0)
             {
-                fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f) * fish.agressiveness;
+                fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f) / fish.agressiveness;
 
                 fishPulling = false;
                 return;
