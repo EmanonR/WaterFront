@@ -4,13 +4,19 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     [SerializeField] Image spriteImage;
+    [SerializeField] Button deleteButton;
 
     InventoryItem myItem;
 
-    private void OnEnable() => UpdateUI();
+    private void OnEnable()
+    {
+        deleteButton.onClick.AddListener(RemoveItem);
+        UpdateUI();
+    }
 
     public void RemoveItem()
     {
+        Inventory.Instance.RemoveItem(myItem);
         myItem = null;
         UpdateUI();
     }
@@ -26,9 +32,11 @@ public class InventorySlot : MonoBehaviour
         if ( myItem == null)
         {
             spriteImage.gameObject.SetActive(false);
+            deleteButton.gameObject.SetActive(false);
             return;
         }
 
+        deleteButton.gameObject.SetActive(true);
         spriteImage.gameObject.SetActive(true);
         spriteImage.sprite = myItem.item.sprite;
     }
