@@ -34,8 +34,7 @@ public class TimeManager : MonoBehaviour
         if (timer >= 1)
         {
             timer -= 1f;
-            currentTime += SPS;
-            OnTimeChanged?.Invoke(currentTime);
+            AddTime(SPS);
         }
     }
 
@@ -52,5 +51,11 @@ public class TimeManager : MonoBehaviour
     public void ResumeTime()
     {
         counting = true;
+    }
+
+    public void AddTime(int addition)
+    {
+        currentTime += addition;
+        OnTimeChanged?.Invoke(currentTime);
     }
 }

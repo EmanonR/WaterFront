@@ -20,6 +20,7 @@ public class FishFight : MonoBehaviour
     public static event Action<bool> OnFightEnd;
 
     public Fish fish;
+    public FishSize fishSize;
 
     bool inFight = false;
     bool fishPulling = false;
@@ -51,6 +52,8 @@ public class FishFight : MonoBehaviour
         inFight = true;
         FightObject.SetActive(true);
         fish = incoming;
+        Array sizes = Enum.GetValues(typeof(FishSize));
+        fishSize = (FishSize)sizes.GetValue(UnityEngine.Random.Range(0, sizes.Length));
         playerWaterProg = 0;
         fishCaptureProg = 0;
         playerState = PlayerState.Recovering;
@@ -70,6 +73,7 @@ public class FishFight : MonoBehaviour
 
         if (fishCaptureProg >= 1)
         {
+            Inventory.Instance.AddItem(new InventoryItem( fish, fishSize));
             EndFight(true);
             return;
         }
@@ -77,6 +81,7 @@ public class FishFight : MonoBehaviour
         if (playerWaterProg >= 1)
         {
             //Also play cutscene and add onto time
+            TimeManager.Instance.AddTime(60);
             EndFight(false);
             return;
         }
