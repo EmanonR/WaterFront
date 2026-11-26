@@ -3,15 +3,19 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] int SPS = 5;
+    [SerializeField] int minutesPerDay = 10;
 
-    int currentTime = 0;
+    int startTime = 480;
+    int targetTime = 1200;
+    float currentTime = 480;
     float timer;
     bool counting = true;
 
     public static event Action<int> OnTimeChanged;
+    public static event Action OnDayEnd;
 
     public static TimeManager Instance;
+
     private void Awake()
     {
         if (Instance != null)
@@ -22,6 +26,10 @@ public class TimeManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
+
+
+        currentTime = startTime;
+        OnTimeChanged?.Invoke((int)currentTime);
     }
 
     private void Update()
@@ -34,11 +42,11 @@ public class TimeManager : MonoBehaviour
         if (timer >= 1)
         {
             timer -= 1f;
-            AddTime(SPS);
+            AddTime((float)((float)targetTime - (float)startTime) / (float)((float)minutesPerDay * 60f));
         }
     }
 
-    public int GetTime()
+    public float GetTime()
     {
         return currentTime;
     }
@@ -53,9 +61,12 @@ public class TimeManager : MonoBehaviour
         counting = true;
     }
 
-    public void AddTime(int addition)
+    public void AddTime(float addition)
     {
         currentTime += addition;
-        OnTimeChanged?.Invoke(currentTime);
+        OnTimeChanged?.Invoke((int)currentTime);
+
+        if (currentTime >= targetTime)
+            OnDayEnd?.Invoke();
     }
 }
