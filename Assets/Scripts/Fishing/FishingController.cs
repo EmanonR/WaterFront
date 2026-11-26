@@ -57,7 +57,7 @@ public class FishingController : MonoBehaviour
         if (InputManager.Instance.castKey.WasPressedThisFrame())
         {
             print("Cancel fishing");
-            EndFishing(false);
+            CancelFishing();
             return;
         }
 
@@ -79,7 +79,13 @@ public class FishingController : MonoBehaviour
         fishingState = FishingState.Waiting;
     }
 
-    public void EndFishing(bool success)
+    public void CancelFishing()
+    {
+        print("Ending fish");
+        fishingState = FishingState.Idle;
+    }
+
+    public void EndFishing(FishFightResult result)
     {
         print("Ending fish");
         fishingState = FishingState.Idle;

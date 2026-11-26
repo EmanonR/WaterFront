@@ -1,6 +1,13 @@
 using System;
 using UnityEngine;
 
+public enum FishFightResult
+{
+    Success,
+    PulledIn,
+    LineCut
+}
+
 public class FishFight : MonoBehaviour
 {
     [Header("Visuals")]
@@ -17,7 +24,7 @@ public class FishFight : MonoBehaviour
     [SerializeField] PlayerState playerState;
     [SerializeField] FishState fishState;
 
-    public static event Action<bool> OnFightEnd;
+    public static event Action<FishFightResult> OnFightEnd;
 
     public Fish fish;
     public FishSize fishSize;
@@ -61,7 +68,7 @@ public class FishFight : MonoBehaviour
         fishPulling = false;
         fishPullTime = 0;
 
-        fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f) * fish.agressiveness;
+        fishRecoveryTime = UnityEngine.Random.Range(.5f, 2f) / fish.agressiveness;
     }
 
     private void Update()
@@ -74,7 +81,7 @@ public class FishFight : MonoBehaviour
         if (fishCaptureProg >= 1)
         {
             Inventory.Instance.AddItem(new InventoryItem( fish, fishSize));
-            EndFight(true);
+            EndFight(FishFightResult.Success);
             return;
         }
 
@@ -82,7 +89,7 @@ public class FishFight : MonoBehaviour
         {
             //Also play cutscene and add onto time
             TimeManager.Instance.AddTime(60);
-            EndFight(false);
+            EndFight(FishFightResult.PulledIn);
             return;
         }
 
@@ -95,7 +102,7 @@ public class FishFight : MonoBehaviour
     {
         if (playerState == PlayerState.Release)
         {
-            EndFight(false);
+            EndFight(FishFightResult.LineCut);
             return;
         }
 
@@ -179,11 +186,11 @@ public class FishFight : MonoBehaviour
             playerState = PlayerState.Recovering;
     }
 
-    void EndFight(bool success)
+    void EndFight(FishFightResult result)
     {
         inFight = false;
         FightObject.SetActive(false);
-        OnFightEnd?.Invoke(success);
+        OnFightEnd?.Invoke(result);
     }
 
     private void OnDrawGizmosSelected()
