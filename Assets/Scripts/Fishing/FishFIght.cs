@@ -195,9 +195,6 @@ public class FishFight : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Player.transform.position = Vector2.Lerp(PlayerPos1, PlayerPos2, playerWaterProg);
-        Fish.transform.position = Vector2.Lerp(FishPos1, FishPos2, fishCaptureProg);
-
         Gizmos.DrawLine(PlayerPos1, PlayerPos2);
         Gizmos.DrawLine(FishPos1, FishPos2);
     }
