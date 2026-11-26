@@ -103,7 +103,7 @@ public class FishFight : MonoBehaviour
                         playerWaterProg = Mathf.Clamp(playerWaterProg -= Time.deltaTime / 5, 0, 1);
                         break;
                     case PlayerState.Pulling:
-                        fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime, 0, 1);
+                        fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime / 5, 0, 1);
                         break;
                 }
                 break;
