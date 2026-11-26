@@ -4,15 +4,28 @@ using UnityEngine;
 public class FishingController : MonoBehaviour
 {
     public FishingState fishingState;
+    public FishFight fight;
 
     public enum FishingState
     {
         Idle,
         Waiting,
-        Fighting
+        StartFight,
+        InFight
     }
 
     float timer;
+
+    private void Awake()
+    {
+        fight = GetComponent<FishFight>(); 
+        FishFight.OnFightEnd += EndFishing;
+    }
+
+    private void OnDestroy()
+    {
+        FishFight.OnFightEnd -= EndFishing;
+    }
 
     private void Update()
     {
@@ -28,28 +41,15 @@ public class FishingController : MonoBehaviour
             case FishingState.Waiting:
                 Waiting();
                 break;
-            case FishingState.Fighting:
-                Fight();
+            case FishingState.StartFight:
+                fight.StartFight(AreaInfo.CurrentAreaInfo.fishInArea[UnityEngine.Random.Range(0, AreaInfo.CurrentAreaInfo.fishInArea.Count)]);
+                fishingState = FishingState.InFight;
+                break;
+            case FishingState.InFight:
                 break;
             default:
                 break;
         }
-    }
-
-    void Fight()
-    {
-        if (InputManager.Instance.fishReleaseKey.IsPressed())
-        {
-            print("Released fish");
-            fishingState = FishingState.Idle;
-        }
-
-        if (InputManager.Instance.fishPullKey.IsPressed())
-            print("Pulling");
-        else if (InputManager.Instance.fishResistKey.IsPressed())
-            print("Resisting");
-        else
-            print("Recovering");
     }
 
     void Waiting()
@@ -57,7 +57,7 @@ public class FishingController : MonoBehaviour
         if (InputManager.Instance.castKey.WasPressedThisFrame())
         {
             print("Cancel fishing");
-            EndFishing();
+            EndFishing(false);
             return;
         }
 
@@ -66,7 +66,7 @@ public class FishingController : MonoBehaviour
         if (timer <= 0)
         {
             timer = 1f;
-            fishingState = FishingState.Fighting;
+            fishingState = FishingState.StartFight;
             print("Fish on hook!");
         }
     }
@@ -79,7 +79,7 @@ public class FishingController : MonoBehaviour
         fishingState = FishingState.Waiting;
     }
 
-    public void EndFishing()
+    public void EndFishing(bool success)
     {
         print("Ending fish");
         fishingState = FishingState.Idle;

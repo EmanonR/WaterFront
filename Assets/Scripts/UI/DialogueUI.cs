@@ -17,6 +17,8 @@ public class DialogueUI : MonoBehaviour
 
     private void Awake()
     {
+        dialoguePanel.SetActive(false);
+
         DialogueManager.NewLine += UpdateDialogue;
         DialogueManager.NewName += UpdateName;
     }

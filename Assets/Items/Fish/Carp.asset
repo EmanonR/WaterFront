@@ -16,3 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 0de09b633c8e9ed41a05227ab6c01d4b, type: 3}
   rarity: 1
   baseValue: 10
+  pullStrength: 0.2
+  agressiveness: 15

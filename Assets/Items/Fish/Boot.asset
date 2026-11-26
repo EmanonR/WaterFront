@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   DisplayName: Boot
   sprite: {fileID: 0}
+  rarity: 0
+  baseValue: 10
+  pullStrength: 0.1
+  agressiveness: 5
