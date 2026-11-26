@@ -28,6 +28,10 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(InventoryItem item)
     {
+        if (items.Count >= inventoryLimit) 
+        {
+            return;
+        }
         items.Add(item);
     }
 
