@@ -8,11 +8,12 @@ public class InventorySlot : MonoBehaviour
 
     InventoryItem myItem;
 
-    private void OnEnable()
+    private void Awake()
     {
         deleteButton.onClick.AddListener(RemoveItem);
-        UpdateUI();
     }
+
+    private void OnEnable() => UpdateUI();
 
     public void RemoveItem()
     {
