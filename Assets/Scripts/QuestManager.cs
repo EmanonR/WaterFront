@@ -10,17 +10,17 @@ public class QuestManager : MonoBehaviour
     public static event Action<Quest> OnQuestCompleted; 
     public static event Action<Quest> OnQuestAdded; 
 
-    public static QuestManager instance;
+    public static QuestManager Instance;
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        Instance = this;
     }
 
     public void AddQuest(Quest aQuest)
