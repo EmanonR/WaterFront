@@ -121,6 +121,10 @@ public class FishFight : MonoBehaviour
                         fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime / 5, 0, 1); 
                         playerSprite.PlayAnimation("Pulling");
                         break;
+                    case PlayerState.Resisting:
+                        playerSprite.PlayAnimation("Resisting");
+                        break;
+
                 }
                 break;
             case FishState.Pulling:
