@@ -1,31 +1,57 @@
 using System;
 using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+public static class DialogueManager
 {
-    int currentLine;
-    int currentDialogue;
+    static int currentLine;
+    static int currentDialogue;
 
-    Conversation currentConversation;
+    static Conversation currentConversation;
 
     public static event Action DialogueStart;
     public static event Action DialogueEnd;
     public static event Action<string> NewLine;
     public static event Action<string> NewName;
 
-    public void StartDialogue(Conversation conversation)
+    public static void StartDialogue(Conversation conversation)
     {
+        currentDialogue = 0;
+        currentLine = 0;
         currentConversation = conversation;
+        DialogueStart?.Invoke();
     }
 
-    public void HandleDialogue()
+    public static void AdvanceDialogue(Conversation aConversation)
     {
-        currentDialogue++;
-        currentLine++;
+        //Start new dialogue if
+        if (currentConversation == null || currentConversation != aConversation)
+            StartDialogue(aConversation);
+
+        //Next line in dialogue
+        if (currentLine >= currentConversation.Dialogues[currentDialogue].lines.Count)
+        {
+            currentLine = 0;
+            currentDialogue++;
+        }
+        else
+        {
+            currentLine++;
+        }
+
+        //End dialogue
+        if (currentDialogue >= currentConversation.Dialogues.Count)
+            EndDialogue();
+
+
+        NewLine?.Invoke(currentConversation.Dialogues[currentDialogue].lines[currentLine]);
+        NewName?.Invoke(currentConversation.Dialogues[currentDialogue].speakerName);
     }
 
-    public void EndDialogue()
+    public static void EndDialogue()
     {
+        currentDialogue = 0;
+        currentLine = 0;
         currentConversation = null;
+        DialogueEnd?.Invoke();
     }
 }
