@@ -24,6 +24,8 @@ public class FishFight : MonoBehaviour
     [SerializeField] PlayerState playerState;
     [SerializeField] FishState fishState;
 
+    [SerializeField] AnimatorHandler playerSprite;
+
     public static event Action<FishFightResult> OnFightEnd;
 
     public Fish fish;
@@ -113,9 +115,11 @@ public class FishFight : MonoBehaviour
                 {
                     case PlayerState.Recovering:
                         playerWaterProg = Mathf.Clamp(playerWaterProg -= Time.deltaTime / 5, 0, 1);
+                        playerSprite.PlayAnimation("Recovering");
                         break;
                     case PlayerState.Pulling:
-                        fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime / 5, 0, 1);
+                        fishCaptureProg = Mathf.Clamp(fishCaptureProg += Time.deltaTime / 5, 0, 1); 
+                        playerSprite.PlayAnimation("Pulling");
                         break;
                 }
                 break;
@@ -125,14 +129,17 @@ public class FishFight : MonoBehaviour
                     case PlayerState.Recovering:
                         playerWaterProg = Mathf.Clamp(playerWaterProg += Time.deltaTime * fish.pullStrength, 0, 1);
                         fishCaptureProg = Mathf.Clamp(fishCaptureProg -= Time.deltaTime * fish.pullStrength, 0, 1);
+                        playerSprite.PlayAnimation("Dragging");
                         break;
                     case PlayerState.Pulling:
                         playerWaterProg = Mathf.Clamp(playerWaterProg += Time.deltaTime * fish.pullStrength, 0, 1);
                         fishCaptureProg = Mathf.Clamp(fishCaptureProg -= Time.deltaTime * fish.pullStrength, 0, 1);
+                        playerSprite.PlayAnimation("Dragging");
                         break;
                     case PlayerState.Resisting:
                         playerWaterProg = Mathf.Clamp(playerWaterProg += (Time.deltaTime * fish.pullStrength / 2), 0, 1);
                         fishCaptureProg = Mathf.Clamp(fishCaptureProg -= (Time.deltaTime * fish.pullStrength / 2), 0, 1);
+                        playerSprite.PlayAnimation("Resisting");
                         break;
                 }
                 break;
@@ -195,6 +202,9 @@ public class FishFight : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        //Player.transform.position = Vector2.Lerp(PlayerPos1, PlayerPos2, playerWaterProg);
+        //Fish.transform.position = Vector2.Lerp(FishPos1, FishPos2, fishCaptureProg);
+
         Gizmos.DrawLine(PlayerPos1, PlayerPos2);
         Gizmos.DrawLine(FishPos1, FishPos2);
     }
