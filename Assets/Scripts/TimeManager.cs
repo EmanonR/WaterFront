@@ -25,7 +25,6 @@ public class TimeManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
         Instance = this;
 
 

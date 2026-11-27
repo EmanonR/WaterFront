@@ -23,7 +23,6 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
         Instance = this;
 
         castKey.Enable();
