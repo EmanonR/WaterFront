@@ -39,6 +39,20 @@ public class Inventory : MonoBehaviour
         items.Remove(item);
     }
 
+    public bool TryRemoveItem(Item template)
+    {
+        foreach (InventoryItem item in items)
+        {
+            if (item.item == template)
+            {
+                RemoveItem(item);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public bool HasItem(Item template)
     {
         foreach (InventoryItem item in items)
