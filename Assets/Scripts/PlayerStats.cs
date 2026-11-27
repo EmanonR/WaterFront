@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public static class PlayerStats
 {
@@ -8,6 +7,14 @@ public static class PlayerStats
 
     public static event Action<int> OnXpChanged;
     public static event Action<int> OnLevelChanged;
+
+
+
+    public static void Reset()
+    {
+        level = 0;
+        xp = 0;
+    }
 
     public static void AddXP(int incoming)
     {
