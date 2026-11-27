@@ -9,21 +9,22 @@ public class QuestUI : MonoBehaviour
     private void Awake()
     {
         //Subscribe to questmanager
-        UpdateText();
+        QuestManager.OnQuestAdded += UpdateText;
     }
 
     private void OnDestroy()
     {
         //Unsubscribe to questmanager
+        QuestManager.OnQuestAdded -= UpdateText;
     }
 
     //Function should feed in a quest object
-    void UpdateText()
+    void UpdateText(Quest aQuest)
     {
         if (questText != null)
-            questText.text = "Carps for Senpai";
+            questText.text = aQuest.displayName;
 
         if (questSubtext != null)
-            questSubtext.text = "Catch 2 carps";
+            questSubtext.text = aQuest.description;
     }
 }

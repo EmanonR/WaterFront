@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,9 @@ public class QuestManager : MonoBehaviour
 {
     public List<Quest> activeQuests;
     public List<Quest> finishedQuests;
+
+    public static event Action<Quest> OnQuestCompleted; 
+    public static event Action<Quest> OnQuestAdded; 
 
     public static QuestManager instance;
 
@@ -22,6 +26,7 @@ public class QuestManager : MonoBehaviour
     public void AddQuest(Quest aQuest)
     {
         activeQuests.Add(aQuest);
+        OnQuestAdded?.Invoke(aQuest);
     }
 
     public void RemoveQuest(Quest aQuest)
@@ -33,5 +38,6 @@ public class QuestManager : MonoBehaviour
     {
         activeQuests.Remove(aQuest);
         finishedQuests.Add(aQuest);
+        OnQuestCompleted?.Invoke(aQuest);
     }
 }
