@@ -6,6 +6,19 @@ public class QuestManager : MonoBehaviour
     public List<Quest> activeQuests;
     public List<Quest> finishedQuests;
 
+    public static QuestManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+    }
+
     public void AddQuest(Quest aQuest)
     {
         activeQuests.Add(aQuest);
