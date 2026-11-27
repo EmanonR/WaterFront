@@ -12,6 +12,11 @@ public class AnimatorHandler : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        currentAnimation = "";
+    }
+
     public void PlayAnimation(string animationName)
     {
         if (currentAnimation != animationName)
