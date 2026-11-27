@@ -341,6 +341,32 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
     m_Priority: 0
+  dialogueAdvanceKey:
+    m_Name: Dialogue Advance Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0a94c55d-bd29-4f4b-b977-50c908a172c6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 9c169c36-1269-4f56-b05c-3c51f522fb0a
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dialogue Advance Key
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 582ce5fe-c626-4c9e-a397-276bb9f4572f
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dialogue Advance Key
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
 --- !u!1 &6772697466802801300
 GameObject:
   m_ObjectHideFlags: 0

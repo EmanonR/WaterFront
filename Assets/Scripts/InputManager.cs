@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public InputAction fishPullKey;
     public InputAction fishResistKey;
     public InputAction fishReleaseKey;
+    public InputAction dialogueAdvanceKey;
 
     public static InputManager Instance;
 
@@ -33,6 +34,7 @@ public class InputManager : MonoBehaviour
         fishPullKey.Enable();
         fishResistKey.Enable();
         fishReleaseKey.Enable();
+        dialogueAdvanceKey.Enable();
     }
 
     private void OnDestroy()
@@ -45,5 +47,6 @@ public class InputManager : MonoBehaviour
         fishPullKey.Disable();
         fishResistKey.Disable();
         fishReleaseKey.Disable();
+        dialogueAdvanceKey.Disable();
     }
 }

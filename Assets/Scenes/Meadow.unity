@@ -427,6 +427,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_Name
+      value: Dialogue Advance Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 9c169c36-1269-4f56-b05c-3c51f522fb0a
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 582ce5fe-c626-4c9e-a397-276bb9f4572f
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/z
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Mouse>/leftButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Dialogue Advance Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043503697602046760, guid: a87e9794601933a48aecb9e90078e734, type: 3}
+      propertyPath: dialogueAdvanceKey.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Dialogue Advance Key
+      objectReference: {fileID: 0}
     - target: {fileID: 6238778240592146365, guid: a87e9794601933a48aecb9e90078e734, type: 3}
       propertyPath: m_IsActive
       value: 1
