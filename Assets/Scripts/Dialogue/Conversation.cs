@@ -4,11 +4,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Conversation", menuName = "Conversation")] 
 public class Conversation : ScriptableObject
 {
-    List<Dialogue> Dialogue = new();
+    public List<Dialogue> Dialogue = new();
 }
 
+[System.Serializable]
 public class Dialogue
 {
-    string speakerName;
-    List<string> dialogue = new();
+    public string speakerName;
+    [TextArea(2,5)]
+    public List<string> dialogue = new();
 }
